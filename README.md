@@ -11,6 +11,7 @@ $ npm install axios
 $ npm i -g npm
 $ npm i --save lodash
 ```
+check package.json for more installations
 
 ## Helpful Resources
 Tutorial that I followed for Yelp API and Marker
