@@ -2,8 +2,7 @@ import React, { Component } from "react";
 
 import HomeScreen from "./component/Home";
 import DetailsScreen from "./component/Details";
-// import MapScreen from "./component/Map";
-import MapScreen from "./component/Map copy";
+import MapScreen from "./component/Map";
 
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
