@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const YELP_API_KEY =
-  "GEtJ0tSq7ZBLvTdBx9-tzVdmqnfSeu5G5phkpkM7TG5kOJh63SJRamIKVuIquCO-aHbYO-vb737PtSr8iI6Cv0GQYmQl5oqOpen8Pznl5mMrR1-hwxbRcIvHN0fCXXYx";
+  "4ryrDjkVEgKqtzuw-L5jdANL_2FUZ_H7Sj4V72wk58zgoyhIUsE_DOrwnUD9OtMGdHI4Sy8vdAbxGZx565xg6rAgRqqS81Togkkwr_I3Pizsr8ejoEvQwxyErFrDXXYx";
 
 export const getRestaurants = userLocation => {
   return (
