@@ -12,7 +12,7 @@ export const getRestaurants = userLocation => {
           Authorization: `Bearer ${YELP_API_KEY}`
         },
         params: {
-          categories: "restaurants",
+          categories: "restaurants, coffee",
           ...userLocation
         }
       })

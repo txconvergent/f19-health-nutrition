@@ -4,14 +4,8 @@
 in your git repository
 
 ```
-$ npm install axios
+$ npm install
 ```
-
-```
-$ npm i -g npm
-$ npm i --save lodash
-```
-check package.json for more installations
 
 ## Helpful Resources
 Tutorial that I followed for Yelp API and Marker

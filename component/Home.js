@@ -16,7 +16,6 @@ export default class HomeScreen extends Component {
     return (
       <View style={styles.container}>
         <StatusBar backgroundColor="white" />
-
         <Text style={{ color: "white" }}>Hello</Text>
         <TextInput style={styles.input} placeholder="Username" />
         <TextInput
@@ -24,7 +23,6 @@ export default class HomeScreen extends Component {
           placeholder="Password"
           secureTextEntry
         />
-
         <View style={styles.btnContainer}>
           <TouchableOpacity
             style={styles.userBtn}
@@ -32,7 +30,6 @@ export default class HomeScreen extends Component {
           >
             <Text style={styles.btnTxt}>Login</Text>
           </TouchableOpacity>
-
           <TouchableOpacity
             style={styles.userBtn}
             onPress={() => this.props.navigation.navigate("Map")}
