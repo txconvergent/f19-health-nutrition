@@ -1,14 +1,13 @@
-import React, { Component } from "react";
+import React, { Component, Text } from "react";
 import MapView from "react-native-maps";
 import { StyleSheet, Dimensions } from "react-native";
 import * as Location from "expo-location";
 import * as Permissions from "expo-permissions";
-// import YelpService from "../services/yelp";
 import get from "lodash/get";
 // import pick from "lodash/pick";
 import { Actions } from "react-native-router-flux";
+
 const Marker = MapView.Marker;
-import Details from "./Details";
 
 const deltas = {
   latitudeDelta: 0.0922,
@@ -23,8 +22,7 @@ const initialRegion = {
 
 export default class Map extends Component {
   state = {
-    location: null,
-    errorMessage: null,
+    myLocation: null,
     places: []
   };
 
@@ -40,13 +38,10 @@ export default class Map extends Component {
     //   });
     // }
 
-    let location = await Location.getCurrentPositionAsync({});
-    this.setState({ location });
-    // this.getRestaurants();
-    console.log("hello this is the location");
-    console.log(this.state.location);
-    this.state.places.push(location);
-    console.log(this.state.places);
+    let mylocation = await Location.getCurrentPositionAsync({});
+    this.setState({ mylocation });
+    console.log("hello this is my location");
+    console.log(this.state.mylocation);
   };
 
   // call getRestaurants method from yelp.js and save the array to places
@@ -59,7 +54,6 @@ export default class Map extends Component {
   //   console.log(this.state.places);
   // };
 
-  // renders markers on the map
   renderMarkers() {
     // console.log("this is marker");
     // console.log(this.state.places);
@@ -71,7 +65,7 @@ export default class Map extends Component {
         key={0}
         title="Test"
         coordinate={{ latitude: 30.28565, longitude: -97.73921 }}
-        onPress={e => console.log("Hello")}
+        // onPress={e => Actions.details()}
         onCalloutPress={e => Actions.details()}
       />
     );
@@ -79,10 +73,10 @@ export default class Map extends Component {
 
   // display the screen
   render() {
-    const { location } = this.state;
+    const { mylocation } = this.state;
     const region = {
-      latitude: get(location, "coords.latitude"),
-      longitude: get(location, "coords.longitude"),
+      latitude: get(mylocation, "coords.latitude"),
+      longitude: get(mylocation, "coords.longitude"),
       ...deltas
     };
 
@@ -90,7 +84,7 @@ export default class Map extends Component {
       <MapView
         style={styles.mapStyle}
         region={region}
-        initialRegion={{ ...initialRegion, ...deltas }}
+        // initialRegion={{ ...initialRegion, ...deltas }}
         showsUserLocation
       >
         {this.renderMarkers()}
