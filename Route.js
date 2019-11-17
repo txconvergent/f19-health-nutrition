@@ -3,6 +3,7 @@ import { Router, Scene } from "react-native-router-flux";
 import Map from "./component/Map";
 import Details from "./component/Details";
 
+// stupid github :(
 const Routes = () => (
   <Router>
     <Scene key="root">
