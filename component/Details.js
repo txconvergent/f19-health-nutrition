@@ -27,7 +27,7 @@ export default class Details extends Component {
   render() {
     return (
       <View style={styles.detailStyle}>
-        <Text style={styles.name}>Restaurant {name}</Text>
+        <Text style={styles.name}>Restaurant {this.state.name}</Text>
         <View style={styles.box}>
           <Text style={styles.nutrition}>Insert Nutrition Facts Here</Text>
         </View>
