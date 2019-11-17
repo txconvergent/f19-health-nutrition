@@ -1,19 +1,50 @@
 import React, { Component } from "react";
-import { Text, View } from "react-native";
+import { Text, View, StyleSheet, Dimensions } from "react-native";
 
 export default class Details extends Component {
-  static navigationOptions = {
-    title: "Details"
+  state = {
+    name: "foo",
+    foodList: []
   };
+
+  getFoods = async () => {
+    let temp = [];
+    let snapshot = await global.db.collection("Food_Items").get();
+
+    snapshot.forEach(doc => {
+      temp.push(doc.data());
+    });
+
+    this.setState({
+      foodList: temp
+    });
+  };
+
+  componentWillMount() {
+    this.getFoods();
+  }
+
   render() {
-    return (     
-<View style={{flex: 1, justifyContent : 'center', backgroundColor : 'white'}}>
-  <Text style={{marginTop: 10, alignSelf: 'center', fontSize: 32}}>Restaurant Name</Text>
-  <View style={{flex: 1, height: 30, backgroundColor: 'orange'}} >
-    <Text>{"\n\n\n\n\n"}</Text>
-    <Text style ={{color: 'white', fontSize: 21, alignSelf: 'center'}}>Insert Nutrition Facts Here</Text>
-  </View>
-</View>
+    return (
+      <View style={styles.detailStyle}>
+        <Text style={styles.name}>Restaurant {name}</Text>
+        <View style={styles.box}>
+          <Text style={styles.nutrition}>Insert Nutrition Facts Here</Text>
+        </View>
+      </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  detailStyle: {
+    alignItems: "stretch",
+    flex: 1,
+    flexDirection: "column",
+    justifyContent: "center",
+    backgroundColor: "white"
+  },
+  name: { marginTop: 10, alignSelf: "center", fontSize: 32 },
+  nutrition: { color: "white", fontSize: 21, alignSelf: "center" },
+  box: { flex: 1, height: 30, backgroundColor: "orange" }
+});
