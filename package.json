@@ -5,8 +5,7 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject",
-    "devtools": "react-devtools"
+    "eject": "expo eject"
   },
   "dependencies": {
     "@react-native-community/geolocation": "^2.0.2",
@@ -18,7 +17,6 @@
     "install": "^0.13.0",
     "lodash": "^4.17.15",
     "react": "16.8.3",
-    "react-devtools": "^4.2.0",
     "react-dom": "^16.8.3",
     "react-native": "https://github.com/expo/react-native/archive/sdk-35.0.0.tar.gz",
     "react-native-gesture-handler": "^1.3.0",

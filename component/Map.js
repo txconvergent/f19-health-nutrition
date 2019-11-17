@@ -4,7 +4,6 @@ import { StyleSheet, Dimensions } from "react-native";
 import * as Location from "expo-location";
 import * as Permissions from "expo-permissions";
 import get from "lodash/get";
-// import pick from "lodash/pick";
 import { Actions } from "react-native-router-flux";
 
 const Marker = MapView.Marker;
@@ -14,15 +13,9 @@ const deltas = {
   longitudeDelta: 0.0421
 };
 
-// location of UT Tower
-const initialRegion = {
-  latitude: 30.28565,
-  longitude: -97.73921
-};
-
 export default class Map extends Component {
   state = {
-    myLocation: null,
+    myLocation: 0,
     places: []
   };
 
@@ -71,7 +64,6 @@ export default class Map extends Component {
     );
   }
 
-  // display the screen
   render() {
     const { mylocation } = this.state;
     const region = {
@@ -81,12 +73,7 @@ export default class Map extends Component {
     };
 
     return (
-      <MapView
-        style={styles.mapStyle}
-        region={region}
-        // initialRegion={{ ...initialRegion, ...deltas }}
-        showsUserLocation
-      >
+      <MapView style={styles.mapStyle} region={region} s showsUserLocation>
         {this.renderMarkers()}
       </MapView>
     );
