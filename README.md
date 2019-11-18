@@ -1,7 +1,6 @@
 # f19-health-nutrition
 
 ## Teams
-Front-End:
 - Sabeer: Search bar & UI
 - Soroush: Firebase
 - Nisha: adding data to Firebase
