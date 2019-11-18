@@ -8,15 +8,21 @@ import { Actions } from "react-native-router-flux";
 
 const Marker = MapView.Marker;
 
+// const deltas = {
+//   latitudeDelta: 0.0922,
+//   longitudeDelta: 0.0421
+// };
+
 const deltas = {
-  latitudeDelta: 0.0922,
-  longitudeDelta: 0.0421
+  latitudeDelta: 0.006866,
+  longitudeDelta: 0.01
 };
 
 export default class Map extends Component {
   state = {
-    myLocation: 0,
-    places: []
+    myLocation: "hi?",
+    places: [],
+    errorMessage: null
   };
 
   componentWillMount() {
@@ -25,11 +31,11 @@ export default class Map extends Component {
 
   getLocationAsync = async () => {
     let { status } = await Permissions.askAsync(Permissions.LOCATION);
-    // if (status !== "granted") {
-    //   this.setState({
-    //     errorMessage: "Permission to access location was denied"
-    //   });
-    // }
+    if (status !== "granted") {
+      this.setState({
+        errorMessage: "Permission to access location was denied"
+      });
+    }
 
     let mylocation = await Location.getCurrentPositionAsync({});
     this.setState({ mylocation });
@@ -75,7 +81,13 @@ export default class Map extends Component {
     };
 
     return (
-      <MapView style={styles.mapStyle} region={region} s showsUserLocation>
+      <MapView
+        style={styles.mapStyle}
+        region={region}
+        showsUserLocation={true}
+        // followsUserLocation={true}
+        zoomEnabled={true}
+      >
         {this.renderMarkers()}
       </MapView>
     );

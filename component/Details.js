@@ -9,7 +9,7 @@ import {
 } from "react-native";
 
 // Galio components
-import { Card, Block, NavBar, Icon } from "galio-framework";
+import { Card, Block, NavBar, Icon, Text } from "galio-framework";
 import theme from "../theme";
 
 const { width } = Dimensions.get("screen");
@@ -42,6 +42,7 @@ export default class Details extends Component {
       foodList: temp
     });
   };
+
   componentWillMount() {
     this.getFoods();
   }
@@ -52,21 +53,22 @@ export default class Details extends Component {
       <Block safe flex style={{ backgroundColor: theme.COLORS.WHITE }}>
         <NavBar
           title={this.props.text}
-          left={
-            <TouchableOpacity onPress={() => console.log("wow it works!")}>
-              <Icon
-                name="meh"
-                family="AntDesign"
-                size={theme.SIZES.BASE}
-                color={theme.COLORS.ICON}
-              />
-            </TouchableOpacity>
-          }
+          // left={
+          //   // <TouchableOpacity onPress={() => console.log("wow it works!")}>
+          //   //   <Icon
+          //   //     name="meh"
+          //   //     family="AntDesign"
+          //   //     size={theme.SIZES.BASE}
+          //   //     color={theme.COLORS.ICON}
+          //   //   />
+          //   // </TouchableOpacity>
+          // }
           style={
             Platform.OS === "android" ? { marginTop: theme.SIZES.BASE } : null
           }
-          style={{ backgroundColor: theme.COLORS.WHITE }}
+          style={{ backgroundColor: theme.COLORS.UT }}
         />
+        {/* <Text h5>{this.props.text}</Text> */}
         <ScrollView contentContainerStyle={styles.cards}>
           <Block flex space="between">
             {cards &&
@@ -78,7 +80,6 @@ export default class Details extends Component {
                   style={styles.card}
                   title={card.title}
                   caption={card.caption}
-                  // imageBlockStyle={[styles.noRadius]}
                 ></Card>
               ))}
           </Block>
