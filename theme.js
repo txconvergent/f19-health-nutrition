@@ -18,7 +18,8 @@ const COLORS = {
   FACEBOOK: "#3B5998",
   TWITTER: "#5BC0DE",
   DRIBBBLE: "#EA4C89",
-  ICON: "#000000"
+  ICON: "#000000",
+  UT: "#FFA500"
 };
 
 const SIZES = {

@@ -59,7 +59,9 @@ export default class Map extends Component {
         title="Test"
         coordinate={{ latitude: 30.28565, longitude: -97.73921 }}
         // onPress={e => Actions.details()}
-        onCalloutPress={e => Actions.details()}
+        onCalloutPress={e =>
+          Actions.details({ text: "This is what is passed yesss" })
+        }
       />
     );
   }
