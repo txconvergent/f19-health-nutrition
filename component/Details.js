@@ -66,21 +66,24 @@ export default class Details extends Component {
           style={
             Platform.OS === "android" ? { marginTop: theme.SIZES.BASE } : null
           }
-          style={{ backgroundColor: theme.COLORS.UT }}
+          style={{ backgroundColor: theme.COLORS.WHITE }}
         />
-        {/* <Text h5>{this.props.text}</Text> */}
         <ScrollView contentContainerStyle={styles.cards}>
           <Block flex space="between">
             {cards &&
               cards.map((card, id) => (
-                <Card
-                  key={`card-${id}`}
-                  flex
-                  shadow={false}
+                <TouchableOpacity
+                  key={id}
                   style={styles.card}
-                  title={card.title}
-                  caption={card.caption}
-                ></Card>
+                  onPress={() => console.log(id)}
+                >
+                  <Card
+                    flex
+                    shadow={false}
+                    title={card.title}
+                    caption={card.caption}
+                  ></Card>
+                </TouchableOpacity>
               ))}
           </Block>
         </ScrollView>
