@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Text, View, StyleSheet, Switch, TouchableOpacity } from "react-native";
 import { Actions } from "react-native-router-flux";
+import theme from "../theme";
 
 export default class Home extends Component {
   state = {
@@ -38,68 +39,91 @@ export default class Home extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Vegan</Text>
-        <Switch onValueChange={this.toggleSwitch1} value={this.state.Vegan} />
+      <React.Fragment>
+        <Text style={styles.titleText}>Inner Peas</Text>
+        <View style={styles.container}>
+          <Text style={styles.label}>Vegan</Text>
+          <Switch onValueChange={this.toggleSwitch1} value={this.state.Vegan} />
 
-        <Text>Vegetarian</Text>
-        <Switch
-          onValueChange={this.toggleSwitch2}
-          value={this.state.Vegetarian}
-        />
+          <Text style={styles.label}>Vegetarian</Text>
+          <Switch
+            onValueChange={this.toggleSwitch2}
+            value={this.state.Vegetarian}
+          />
 
-        <Text>Nut Allergy</Text>
-        <Switch
-          onValueChange={this.toggleSwitch3}
-          value={this.state.Nut_Allergy}
-        />
+          <Text style={styles.label}>Nut Allergy</Text>
+          <Switch
+            onValueChange={this.toggleSwitch3}
+            value={this.state.Nut_Allergy}
+          />
 
-        <Text>Lactose Intolerant</Text>
-        <Switch
-          onValueChange={this.toggleSwitch4}
-          value={this.state.Lactose_Intolerant}
-        />
+          <Text style={styles.label}>Lactose Intolerant</Text>
+          <Switch
+            onValueChange={this.toggleSwitch4}
+            value={this.state.Lactose_Intolerant}
+          />
 
-        <Text>Halal</Text>
-        <Switch onValueChange={this.toggleSwitch5} value={this.state.Halal} />
+          <Text style={styles.label}>Halal</Text>
+          <Switch onValueChange={this.toggleSwitch5} value={this.state.Halal} />
 
-        <Text>Kosher</Text>
-        <Switch onValueChange={this.toggleSwitch6} value={this.state.Kosher} />
+          <Text style={styles.label}>Kosher</Text>
+          <Switch
+            onValueChange={this.toggleSwitch6}
+            value={this.state.Kosher}
+          />
 
-        <View style={styles.btnContainer}>
-          <TouchableOpacity
-            style={styles.userBtn}
-            onPress={() => Actions.map()}
-          >
-            <Text style={styles.btnTxt}>Map</Text>
-          </TouchableOpacity>
+          <View style={styles.btnContainer}>
+            <TouchableOpacity
+              style={styles.userBtn}
+              onPress={() => Actions.map()}
+            >
+              <Text style={styles.btnTxt}>Map</Text>
+            </TouchableOpacity>
+          </View>
         </View>
-      </View>
+      </React.Fragment>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  label: {
+    color: theme.COLORS.TEXT
+  },
+
   container: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    backgroundColor: theme.COLORS.HOME
   },
 
   userBtn: {
-    backgroundColor: "#CC5500",
-    padding: 15
+    textAlign: "center",
+    padding: 15,
+    backgroundColor: theme.COLORS.MAP_BUTTON_BACKGROUND
   },
 
-  btnText: {
-    fontSize: 48,
+  btnTxt: {
+    fontSize: 28,
     textAlign: "center",
-    margin: "auto"
+    margin: "auto",
+    color: theme.COLORS.MAP_BUTTON_TEXT
   },
 
   btnContainer: {
     flexDirection: "row",
     justifyContent: "center",
     width: "90%"
+  },
+
+  titleText: {
+    fontSize: 64,
+    textAlign: "center",
+    margin: "auto",
+    color: theme.COLORS.TEXT,
+    fontWeight: "bold",
+    fontStyle: "italic",
+    backgroundColor: theme.COLORS.HOME
   }
 });
