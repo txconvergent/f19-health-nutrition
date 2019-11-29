@@ -8,7 +8,6 @@ const firebaseConfig = {
   apiKey: "AIzaSyCgPTlv7q0nLT8JKqcLyn_sve8RRkPvceA",
   projectId: "nutrition-b17ba"
 };
-
 firebase.initializeApp(firebaseConfig);
 
 let db = firebase.firestore();
@@ -16,7 +15,7 @@ global.db = db;
 
 export default class App extends Component {
   render() {
-    console.log("hello this is the start");
+    console.log("Starting the app");
     return <Routes />;
   }
 }

@@ -1,5 +1,13 @@
 import React, { Component } from "react";
-import { Text, View, StyleSheet, Switch, TouchableOpacity } from "react-native";
+import {
+  Text,
+  View,
+  StyleSheet,
+  Switch,
+  TouchableOpacity,
+  Image,
+  Dimensions
+} from "react-native";
 import { Actions } from "react-native-router-flux";
 import theme from "../theme";
 
@@ -40,34 +48,51 @@ export default class Home extends Component {
   render() {
     return (
       <React.Fragment>
-        <Text style={styles.titleText}>Inner Peas</Text>
         <View style={styles.container}>
+          <Text style={styles.titleText}>Inner Peas</Text>
+          <Image
+            style={{ marginBottom: 20 }}
+            source={require("../assets/peas.png")}
+          />
+
           <Text style={styles.label}>Vegan</Text>
-          <Switch onValueChange={this.toggleSwitch1} value={this.state.Vegan} />
+          <Switch
+            style={styles.switchButton}
+            onValueChange={this.toggleSwitch1}
+            value={this.state.Vegan}
+          />
 
           <Text style={styles.label}>Vegetarian</Text>
           <Switch
+            style={styles.switchButton}
             onValueChange={this.toggleSwitch2}
             value={this.state.Vegetarian}
           />
 
           <Text style={styles.label}>Nut Allergy</Text>
           <Switch
+            style={styles.switchButton}
             onValueChange={this.toggleSwitch3}
             value={this.state.Nut_Allergy}
           />
 
           <Text style={styles.label}>Lactose Intolerant</Text>
           <Switch
+            style={styles.switchButton}
             onValueChange={this.toggleSwitch4}
             value={this.state.Lactose_Intolerant}
           />
 
           <Text style={styles.label}>Halal</Text>
-          <Switch onValueChange={this.toggleSwitch5} value={this.state.Halal} />
+          <Switch
+            style={styles.switchButton}
+            onValueChange={this.toggleSwitch5}
+            value={this.state.Halal}
+          />
 
           <Text style={styles.label}>Kosher</Text>
           <Switch
+            style={styles.switchButton}
             onValueChange={this.toggleSwitch6}
             value={this.state.Kosher}
           />
@@ -87,26 +112,37 @@ export default class Home extends Component {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    alignItems: "center",
+    textAlign: "center",
+    backgroundColor: theme.COLORS.HOME,
+    width: Dimensions.get("window").width,
+    height: Dimensions.get("window").height
+  },
+
+  titleText: {
+    marginBottom: 20,
+    fontSize: 64,
+    color: theme.COLORS.TITLE_TEXT,
+    fontWeight: "bold",
+    fontStyle: "italic"
+  },
+
   label: {
     color: theme.COLORS.TEXT
   },
 
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: theme.COLORS.HOME
+  switchButton: {
+    marginBottom: 10
   },
 
   userBtn: {
-    textAlign: "center",
     padding: 15,
     backgroundColor: theme.COLORS.MAP_BUTTON_BACKGROUND
   },
 
   btnTxt: {
-    fontSize: 28,
-    textAlign: "center",
+    fontSize: 24,
     margin: "auto",
     color: theme.COLORS.MAP_BUTTON_TEXT
   },
@@ -114,16 +150,7 @@ const styles = StyleSheet.create({
   btnContainer: {
     flexDirection: "row",
     justifyContent: "center",
-    width: "90%"
-  },
-
-  titleText: {
-    fontSize: 64,
-    textAlign: "center",
-    margin: "auto",
-    color: theme.COLORS.TEXT,
-    fontWeight: "bold",
-    fontStyle: "italic",
-    backgroundColor: theme.COLORS.HOME
+    width: "90%",
+    marginTop: 5
   }
 });

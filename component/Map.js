@@ -8,19 +8,23 @@ import { Actions } from "react-native-router-flux";
 
 const Marker = MapView.Marker;
 
-// const deltas = {
-//   latitudeDelta: 0.0922,
-//   longitudeDelta: 0.0421
-// };
-
 const deltas = {
   latitudeDelta: 0.006866,
   longitudeDelta: 0.01
 };
 
+const places = [
+  {
+    id: 1,
+    title: "foo",
+    latitude: 40.283937,
+    longitude: -97.742144
+  }
+];
+
 export default class Map extends Component {
   state = {
-    myLocation: "hi?",
+    myLocation: null,
     places: [],
     errorMessage: null
   };
@@ -43,33 +47,15 @@ export default class Map extends Component {
     console.log(this.state.mylocation);
   };
 
-  // call getRestaurants method from yelp.js and save the array to places
-  // getRestaurants = async () => {
-  //   const coords = get(this.state.location, "coords");
-  //   const userLocation = pick(coords, ["latitude", "longitude"]);
-  //   let places = await YelpService.getRestaurants(userLocation);
-  //   console.log("test");
-  //   this.setState({ places });
-  //   console.log(this.state.places);
-  // };
-
   renderMarkers() {
-    // console.log("this is marker");
-    // console.log(this.state.places);
-    // return this.state.places.map((place, i) => (
-    //   <Marker key={i} title="Test" coordinate={{ lat: -34, lng: 151 }} />
-    // ));
-    return (
+    return places.map(place => (
       <Marker
-        key={0}
-        title="Test"
-        coordinate={{ latitude: 30.28565, longitude: -97.73921 }}
-        // onPress={e => Actions.details()}
-        onCalloutPress={e =>
-          Actions.details({ text: "This is what is passed yesss" })
-        }
+        key={place.id}
+        title={place.title}
+        coordinate={{ latitude: place.latitude, longitude: place.longitude }}
+        onCalloutPress={e => Actions.details({ text: place.title })}
       />
-    );
+    ));
   }
 
   render() {
@@ -85,7 +71,6 @@ export default class Map extends Component {
         style={styles.mapStyle}
         region={region}
         showsUserLocation={true}
-        // followsUserLocation={true}
         zoomEnabled={true}
       >
         {this.renderMarkers()}
