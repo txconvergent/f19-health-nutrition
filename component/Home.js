@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
   container: {
     alignItems: "center",
     textAlign: "center",
-    backgroundColor: theme.COLORS.HOME,
+    backgroundColor: theme.COLORS.WHITE,
     width: Dimensions.get("window").width,
     height: Dimensions.get("window").height
   },
@@ -138,13 +138,14 @@ const styles = StyleSheet.create({
 
   userBtn: {
     padding: 15,
-    backgroundColor: theme.COLORS.MAP_BUTTON_BACKGROUND
+    borderRadius: 10,
+    backgroundColor: theme.COLORS.LIGHT_GREEN
   },
 
   btnTxt: {
     fontSize: 24,
     margin: "auto",
-    color: theme.COLORS.MAP_BUTTON_TEXT
+    color: theme.COLORS.DARK_GREEN
   },
 
   btnContainer: {

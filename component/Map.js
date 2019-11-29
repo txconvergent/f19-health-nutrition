@@ -5,6 +5,7 @@ import * as Location from "expo-location";
 import * as Permissions from "expo-permissions";
 import get from "lodash/get";
 import { Actions } from "react-native-router-flux";
+import places from "../static/places";
 
 const Marker = MapView.Marker;
 
@@ -12,15 +13,6 @@ const deltas = {
   latitudeDelta: 0.006866,
   longitudeDelta: 0.01
 };
-
-const places = [
-  {
-    id: 1,
-    title: "foo",
-    latitude: 40.283937,
-    longitude: -97.742144
-  }
-];
 
 export default class Map extends Component {
   state = {
@@ -43,8 +35,7 @@ export default class Map extends Component {
 
     let mylocation = await Location.getCurrentPositionAsync({});
     this.setState({ mylocation });
-    console.log("hello this is my location");
-    console.log(this.state.mylocation);
+    // console.log(this.state.mylocation);
   };
 
   renderMarkers() {

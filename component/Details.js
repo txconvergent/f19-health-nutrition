@@ -3,29 +3,16 @@ import {
   StyleSheet,
   Dimensions,
   ScrollView,
-  Platform,
-  TouchableOpacity,
-  TouchableWithoutFeedback
+  TouchableOpacity
 } from "react-native";
 
-// Galio components
-import { Card, Block, NavBar, Icon, Text } from "galio-framework";
+import { Card, Block } from "galio-framework";
 import theme from "../theme";
+import menu from "../static/menu";
 
 const { width } = Dimensions.get("screen");
-
-const cards = [
-  {
-    id: 1,
-    title: "Taco bell",
-    caption: "no vegan :("
-  },
-  {
-    id: 2,
-    title: "Pizza Press",
-    caption: "yes vegan :)"
-  }
-];
+let count = 0;
+let dis = null;
 
 export default class Details extends Component {
   state = {
@@ -44,6 +31,8 @@ export default class Details extends Component {
   };
 
   componentWillMount() {
+    count++;
+    dis = count % 2 === 0 ? menu.tejis : menu.foo;
     this.getFoods();
   }
 
@@ -51,37 +40,21 @@ export default class Details extends Component {
     const { navigation } = this.props;
     return (
       <Block safe flex style={{ backgroundColor: theme.COLORS.WHITE }}>
-        <NavBar
-          title={this.props.text}
-          // left={
-          //   // <TouchableOpacity onPress={() => console.log("wow it works!")}>
-          //   //   <Icon
-          //   //     name="meh"
-          //   //     family="AntDesign"
-          //   //     size={theme.SIZES.BASE}
-          //   //     color={theme.COLORS.ICON}
-          //   //   />
-          //   // </TouchableOpacity>
-          // }
-          style={
-            Platform.OS === "android" ? { marginTop: theme.SIZES.BASE } : null
-          }
-          style={{ backgroundColor: theme.COLORS.WHITE }}
-        />
         <ScrollView contentContainerStyle={styles.cards}>
           <Block flex space="between">
-            {cards &&
-              cards.map((card, id) => (
+            {dis &&
+              dis.map((item, id) => (
                 <TouchableOpacity
                   key={id}
-                  style={styles.card}
+                  style={item.rec ? styles.rec : styles.card}
                   onPress={() => console.log(id)}
                 >
                   <Card
                     flex
-                    shadow={false}
-                    title={card.title}
-                    caption={card.caption}
+                    borderless
+                    shadow={true}
+                    title={item.title}
+                    caption={item.caption}
                   ></Card>
                 </TouchableOpacity>
               ))}
@@ -103,6 +76,14 @@ const styles = StyleSheet.create({
     backgroundColor: theme.COLORS.WHITE,
     width: width - theme.SIZES.BASE * 2,
     marginVertical: theme.SIZES.BASE * 0.875,
-    elevation: theme.SIZES.BASE / 2
+    elevation: theme.SIZES.BASE / 2,
+    borderRadius: 10
+  },
+  rec: {
+    backgroundColor: theme.COLORS.LIGHT_GREEN,
+    width: width - theme.SIZES.BASE * 2,
+    marginVertical: theme.SIZES.BASE * 0.875,
+    elevation: theme.SIZES.BASE / 2,
+    borderRadius: 10
   }
 });
