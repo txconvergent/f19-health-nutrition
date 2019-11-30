@@ -11,7 +11,7 @@ const Marker = MapView.Marker;
 
 const deltas = {
   latitudeDelta: 0.006866,
-  longitudeDelta: 0.01
+  longitudeDelta: 0.007866
 };
 
 export default class Map extends Component {
@@ -44,7 +44,7 @@ export default class Map extends Component {
         key={place.id}
         title={place.title}
         coordinate={{ latitude: place.latitude, longitude: place.longitude }}
-        onCalloutPress={e => Actions.details({ text: place.title })}
+        onCalloutPress={e => Actions.details({ id: place.id })}
       />
     ));
   }

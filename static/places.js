@@ -13,9 +13,9 @@ const places = [
   },
   {
     id: 2,
-    title: "Taco Bell",
-    latitude: 30.282843,
-    longitude: -97.742392
+    title: "Madam Mam's",
+    latitude: 30.291,
+    longitude: -97.74257
   },
   {
     id: 3,
@@ -31,9 +31,45 @@ const places = [
   },
   {
     id: 5,
-    title: "Pizza On Point",
+    title: "Roppolo’s Pizzeria",
+    latitude: 30.291004,
+    longitude: -97.741506
+  },
+  {
+    id: 6,
+    title: "Song La",
     latitude: 30.28624,
-    longitude: -97.74251
+    longitude: -97.742508
+  },
+  {
+    id: 7,
+    title: "Cold Cookie Company",
+    latitude: 30.290538,
+    longitude: -97.744756
+  },
+  {
+    id: 8,
+    title: "Kerbey Lane Cafe",
+    latitude: 30.29123,
+    longitude: -97.741492
+  },
+  {
+    id: 9,
+    title: "Bananarchy",
+    latitude: 30.287787,
+    longitude: -97.741752
+  },
+  {
+    id: 10,
+    title: "Caffé Medici",
+    latitude: 30.285587,
+    longitude: -97.742096
+  },
+  {
+    id: 11,
+    title: "Hala Bros",
+    latitude: 30.292511,
+    longitude: -97.74167
   }
 ];
 

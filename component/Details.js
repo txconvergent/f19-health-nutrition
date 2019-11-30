@@ -32,7 +32,11 @@ export default class Details extends Component {
 
   componentWillMount() {
     count++;
-    dis = count % 2 === 0 ? menu.tejis : menu.foo;
+    if (this.props.id !== 2) {
+      dis = count % 2 === 0 ? menu.tejis : menu.foo;
+    } else {
+      dis = menu.madam;
+    }
     this.getFoods();
   }
 
