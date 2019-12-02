@@ -23,6 +23,7 @@ export default class Map extends Component {
 
   componentWillMount() {
     this.getLocationAsync();
+    console.log(this.props.vegan);
   }
 
   getLocationAsync = async () => {

@@ -32,6 +32,7 @@ export default class Details extends Component {
 
   componentWillMount() {
     count++;
+    console.log(user);
     if (this.props.id !== 2) {
       dis = count % 2 === 0 ? menu.tejis : menu.foo;
     } else {

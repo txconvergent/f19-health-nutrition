@@ -100,7 +100,7 @@ export default class Home extends Component {
           <View style={styles.btnContainer}>
             <TouchableOpacity
               style={styles.userBtn}
-              onPress={() => Actions.map()}
+              onPress={() => Actions.map({ vegan: this.state })}
             >
               <Text style={styles.btnTxt}>Map</Text>
             </TouchableOpacity>
