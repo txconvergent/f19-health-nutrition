@@ -31,18 +31,13 @@ export default class Details extends Component {
   };
 
   componentWillMount() {
-    count++;
-    console.log(user);
-    if (this.props.id !== 2) {
-      dis = count % 2 === 0 ? menu.tejis : menu.foo;
-    } else {
-      dis = menu.madam;
-    }
     this.getFoods();
   }
 
   render() {
     const { navigation } = this.props;
+    console.log(navigation);
+    console.log(this.props);
     return (
       <Block safe flex style={{ backgroundColor: theme.COLORS.WHITE }}>
         <ScrollView contentContainerStyle={styles.cards}>
